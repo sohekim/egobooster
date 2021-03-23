@@ -1,0 +1,333 @@
+<!--<p th:each="user : ${users}" th:text="${user.name}"></p>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ego Booster</title>
+  <link rel="stylesheet"
+        th:href="@{https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css}"/>
+
+  <style>
+    .myTitle {
+      width: 20%;
+    }
+
+    .myTable {
+      font-size: medium;
+      width: 50%;
+      margin-bottom: 2%;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: #f2f4f6; margin-top: 5%">
+<center>
+  <i class="big fire icon" style="margin-bottom: 1%"></i>
+  <p style="font-size:20px; font-weight: bold">Ego Booster API Documentation</p>
+  <p style="font-size:13px; margin-bottom: 1.5%">Spring Boot && Tech Stack && More && Something
+    More</p>
+
+  <!-- <div class="large ui vertical menu" style="text-align: start; font-size: large; float:inline-start; ">
+      <div class="item">
+          <div class="header">Endpoints</div>
+          <div class="menu">
+              <a class="item active">Random Ego Booster</a>
+              <a class="item">Personalized Ego Booster</a>
+              <a class="item">Ego Booster List</a>
+              <a class="item">Ego Booster By Id</a>
+              <a class="item">Ego Booster By Keyword</a>
+          </div>
+      </div>
+      <div class="item">
+          <div class="header">Objects</div>
+          <div class="menu">
+              <a class="item">Ego Booster</a>
+          </div>
+      </div>
+      </div> -->
+  <div>
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Random Ego Booster
+      </caption>
+      <tbody>
+      <tr>
+        <td style="width: 20%">HTTP Method</td>
+        <td><b>GET</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/random</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>Find Random Booster</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>none</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>
+          <p style="color: forestgreen; font-weight: bold">Status: 200 OK</p>
+          {<br>
+          "id": 4,<br>
+          "text": "Love yourself first and everything else falls into line. You really have to love
+          yourself to get anything done in this world.",<br>
+          "updateDate": "2021-03-06T00:40:51.311875"<br>
+          }
+          <br>
+          <br>
+          <p style="color: orangered; font-weight: bold">Status: 404 Not Found</p>
+          {<br>
+          booster not found<br>
+          }<br>
+
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Personalize Ego Booster
+      </caption>
+      <tbody>
+      <tr>
+        <td th:class="myTitle">HTTP Method</td>
+        <td><b>GET</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/{id}/custom</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>[UPDATE] Find a Custom Booster Substituted with a giftee and gifter</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>@RequestParam(value = "giftee") @NotNull String giftee<br>
+          @RequestParam(value = "gifter") String gifter
+        </td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>rating (integer)</td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Ego Booster List
+      </caption>
+      <tbody>
+      <tr>
+        <td th:class="myTitle">HTTP Method</td>
+        <td><b>GET</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>Find a paginated list of Boosters</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>@RequestParam(required = false, defaultValue = "0") Integer page<br>
+          @RequestParam(required = false, defaultValue = "5") Integer size
+        </td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>
+          <p style="color: forestgreen; font-weight: bold">Status: 200 OK</p>
+          //SOHEE add code snippet
+          [<br>
+          {<br>
+          "id": 1,<br>
+          "text": "When you recover or discover something that nourishes your soul and brings joy,
+          care enough about yourself to make room for it in your life.",<br>
+          "updateDate": "2021-03-06T00:39:09.076702"<br>
+          },<br>
+          {<br>
+          "id": 2,<br>
+          "text": "Until you value yourself, you won't value your time. Until you value your time,
+          you will not do anything with it.",<br>
+          "updateDate": "2021-03-06T00:40:12.589297"<br>
+          },<br>
+          {<br>
+          "id": 3,<br>
+          "text": "An individual cannot be comfortable without their own approval.",<br>
+          "updateDate": "2021-03-06T00:40:24.997505"<br>
+          },<br>
+          {<br>
+          "id": 4,<br>
+          "text": "Love yourself first and everything else falls into line. You really have to love
+          yourself to get anything done in this world.",<br>
+          "updateDate": "2021-03-06T00:40:51.311875"<br>
+          },<br>
+          {<br>
+          "id": 5,<br>
+          "text": "To fall in love with yourself is the first secret to happiness.",<br>
+          "updateDate": "2021-03-06T00:41:12.550309"<br>
+          }<br>
+          ]<br>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Ego Booster By Id
+      </caption>
+      <tbody>
+      <tr>
+        <td th:class="myTitle">HTTP Method</td>
+        <td><b>GET</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/{id}</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>Find Booster by Id</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>@PathVariable(value = "id") Long id</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>
+          <p style="color: forestgreen; font-weight: bold">Status: 200 OK</p>
+          {<br>
+          "id": 4,<br>
+          "text": "Love yourself first and everything else falls into line. You really have to love
+          yourself to get anything done in this world.",<br>
+          "updateDate": "2021-03-06T00:40:51.311875"<br>
+          }
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Ego Booster By Keyword
+      </caption>
+      <tbody>
+      <tr>
+        <td th:class="myTitle">HTTP Method</td>
+        <td><b>GET</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>Find a Booster containing the keyword</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>[UPDATE] @RequestParam(value = "keyword")<br>@NotNull String keyword</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>
+          <p style="color: forestgreen; font-weight: bold">Status: 200 OK</p>
+          {<br>
+          "id": 4,<br>
+          "text": "Love yourself first and everything else falls into line. You really have to love
+          yourself to get anything done in this world.",<br>
+          "updateDate": "2021-03-06T00:40:51.311875"<br>
+          }
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="ui definition table" style="margin-bottom: 2%; font-size: 13px; width: 50%">
+      <caption style="
+                  text-align: start;
+                  font-size: 15px;
+                  margin-bottom: 1%;
+                  font-weight: bold;
+                  ">
+        Save Ego Booster
+      </caption>
+      <tbody>
+      <tr>
+        <td th:class="myTitle">HTTP Method</td>
+        <td><b>POST</b></td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">URL</td>
+        <td>/api/v1/boosters/</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Description</td>
+        <td>Save a new Booster</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Parameter</td>
+        <td>@RequestBody BoosterDto boosterDto</td>
+      </tr>
+      <tr>
+        <td th:class="myTitle">Sample Response</td>
+        <td>
+          <p style="color: forestgreen; font-weight: bold">Status: 200 OK</p>
+          {<br>
+          "id": 4,<br>
+          "text": "Love yourself first and everything else falls into line. You really have to love
+          yourself to get anything done in this world.",<br>
+          "updateDate": "2021-03-06T00:40:51.311875"<br>
+          }
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px; font-weight: bold">
+    Made By <a href="https://sohekim.github.io/" target="_blank">Sohee Kim</a> For My Depressed
+    Friends
+  </p>
+  </br>
+</center>
+</body>
+
+</html>

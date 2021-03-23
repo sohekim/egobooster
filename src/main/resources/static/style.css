@@ -1,0 +1,27 @@
+#content {
+  width: 50%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+#printcontent {
+  width: 65%;
+}
+
+#like {
+  margin-top: 4%;
+}
+
+.myTable {
+  font-size: medium;
+  width: 50%;
+  margin-bottom: 2%;
+}
+
+#text {
+  text-align: match-parent;
+}
+
+.myTitle {
+  width: 20%;
+}

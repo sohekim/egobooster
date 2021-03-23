@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ego Booster</title>
+  <link rel="stylesheet"
+        th:href="@{https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css}"/>
+</head>
+
+<body style="background-color: #f2f4f6; margin-top: 5%">
+<center>
+  <i class="big fire icon" style="margin-bottom: 1%"></i>
+  <p style="font-size:20px; font-weight: bold">Ego Booster</p>
+  <p style="font-size:13px; margin-bottom: 1.5%">Find Ego Boosting Quotes That You Deserve<br>Powered
+    By A <a th:href="@{document}">Modern and RESTful API</a></p>
+  <!--  if i want a different URL-->
+  <!--  <button class="small ui button" id="randomButton" onclick="location.href='/random'">Get Random-->
+  <button class="small ui button" id="randomButton">Get Random
+  </button>
+  <div class="small ui inverted action input">
+    <input type="text" placeholder="Find By Keyword..." name="myPlaceholder" value="" id="myPlaceholder"/>
+    <input type="hidden" id="slipId" th:value="${booster.getId()}">
+    <button class="small ui icon button" id="searchButton">
+      <i class="search icon"></i>
+    </button>
+  </div>
+  <!-- <button class="small ui icon button">
+      <i class="refresh icon"></i>
+      </button> -->
+  <div class="ui raised very padded tall stacked segment" id="content" style="width: 50%;
+  margin-top: 1%;
+  margin-bottom: 2%;">
+    <!--    SOHEE if error -->
+    <h2 class="ui header" th:text="${booster.getText()}" id="boosterText"></h2>
+  </div>
+
+  <h5 class="ui horizontal divider header" style="width: 60%">
+    Personalize This Booster
+  </h5>
+  </br>
+  <div class="small ui inverted small form" style="width: 40%">
+    <div class="two fields">
+      <div class="field">
+        <input placeholder="giftee name" type="text" value="" id="giftee"/>
+      </div>
+      <div class="field">
+        <input placeholder="gifter name" type="text" value="" id="gifter"/>
+      </div>
+    </div>
+    <button class="small ui submit button" style="width: 100%;" id="personalizeButton">Get Link
+    </button>
+  </div>
+
+  <h5 class="ui horizontal divider header" style="width: 60%">
+    Subscribe for Daily Ego Booster In Your Mailbox
+  </h5>
+  </br>
+  <div class="ui inverted action input" style="width: 40%">
+    <input type="text" placeholder="Email..." id="subscribePlaceholder" value="">
+    <button class="ui button" id = "subscribeButton">Subscribe</button>
+  </div>
+  </br>
+  <!-- <i class="big github icon"></i> -->
+  <div class="small ui labeled button" tabindex="0" id="love"
+       style="margin-bottom: 1%; margin-top: 4%">
+    <div class="small ui red button">
+      <i class="heart icon"></i> Love
+    </div>
+    <a class="small ui basic red left pointing label" th:text="${love}" id="loveCount">
+    </a>
+  </div>
+  <p style="font-size:12px; font-weight: bold">Made By <a href="https://sohekim.github.io/"
+                                                          target="_blank">Sohee Kim</a> For My
+    Depressed Friends</p>
+</center>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script th:src="@{boost.js}"></script>
+</body>
+</html>
