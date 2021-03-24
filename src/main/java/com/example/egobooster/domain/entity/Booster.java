@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Booster {
 
-  //3. SOHEE id 뭔가 이상함 / 하나 지우면?? / 갑자기 막 35 65 뜸
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

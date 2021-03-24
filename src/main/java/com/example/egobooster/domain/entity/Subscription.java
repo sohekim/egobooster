@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,19 +18,17 @@ import lombok.NoArgsConstructor;
 public class Subscription {
 
   @Id
-//  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="InvSeq")
-  @SequenceGenerator(name="InvSeq",sequenceName="INV_SEQ", allocationSize=1)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String email;
   private LocalDateTime updateDate;
 
-  protected Subscription (SubscriptionDto dto) {
+  protected Subscription(SubscriptionDto dto) {
     this.email = dto.getEmail();
     this.updateDate = dto.getUpdateDate();
   }
 
-  public static Subscription ofDto (SubscriptionDto dto) {
+  public static Subscription ofDto(SubscriptionDto dto) {
     return new Subscription(dto);
   }
 

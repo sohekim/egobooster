@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter
 public class Love {
 
-  // 1. 굳이 얘를 entity 로 빼 ? 근데 안빼면 대안이 모지 Sohee entity?
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

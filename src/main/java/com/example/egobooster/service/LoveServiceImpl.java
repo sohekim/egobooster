@@ -19,7 +19,6 @@ public class LoveServiceImpl implements LoveService {
     Optional<Love> optionalLove = loveRepository.findById(1L);
     Love love = optionalLove.get();
     love.setCount(love.getCount() + 1);
-    //SOHEE if error
     return love;
   }
 
