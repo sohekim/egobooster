@@ -72,14 +72,15 @@ public class BoosterController {
 
   @GetMapping("/random")
   public ResponseEntity<BoosterDto> findRandomBooster() {
-    //TODO : add retry logic
-    Integer count = boosterService.getBoosterCount();
-    Integer randomNum = ThreadLocalRandom.current().nextInt(1, count + 1);
-    Optional<Booster> booster = boosterService.findBoosterById(Long.valueOf(randomNum));
-    if (booster.isEmpty()) {
-      return new ResponseEntity("booster not found", HttpStatus.NOT_FOUND);
+    for (int i = 0; i < 50; i++) {
+      Integer count = boosterService.getBoosterCount();
+      Integer randomNum = ThreadLocalRandom.current().nextInt(1, count + 1);
+      Optional<Booster> booster = boosterService.findBoosterById(Long.valueOf(randomNum));
+      if (booster.isPresent()) {
+        return new ResponseEntity<>(BoosterConverter.ofEntity(booster.get()), HttpStatus.OK);
+      }
     }
-    return new ResponseEntity<>(BoosterConverter.ofEntity(booster.get()), HttpStatus.OK);
+    return new ResponseEntity("booster not found", HttpStatus.NOT_FOUND);
   }
 
   @GetMapping("/{id}/personalize")
