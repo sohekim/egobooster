@@ -1,10 +1,9 @@
 package com.example.egobooster.service;
-
-import com.example.egobooster.domain.entity.Love;
+import com.example.egobooster.domain.redis.RedisLove;
 
 public interface LoveService {
 
-  Love love();
+  RedisLove love();
 
   int getCount();
 

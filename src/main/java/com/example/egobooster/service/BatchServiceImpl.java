@@ -1,34 +1,47 @@
 package com.example.egobooster.service;
 
-import com.example.egobooster.domain.entity.BatchNum;
-import com.example.egobooster.repository.BatchRepository;
+import com.example.egobooster.domain.redis.RedisBatch;
+import com.example.egobooster.repository.BatchRedisRepository;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class BatchServiceImpl implements BatchService {
 
-  final BatchRepository batchRepository;
+  final BatchRedisRepository batchRedisRepository;
 
-  @Transactional
   @Override
-  public BatchNum executeBatch() {
-    Optional<BatchNum> optionalBatchNum = batchRepository.findById(1L);
-    BatchNum batchNum = optionalBatchNum.get();
-    batchNum.setCount(batchNum.getCount() + 1);
-    return batchNum;
+  public RedisBatch executeBatch() {
+    Optional<RedisBatch> optionalBatchNum = batchRedisRepository.findById(1L);
+    if (optionalBatchNum.isEmpty()) {
+      batchRedisRepository.save(new RedisBatch(1L, 1));
+      optionalBatchNum = batchRedisRepository.findById(1L);
+    }
+    RedisBatch redisBatch = optionalBatchNum.get();
+    redisBatch.setCount(redisBatch.getCount() + 1);
+    batchRedisRepository.save(redisBatch);
+    return redisBatch;
   }
 
   @Override
   public Integer getCount() {
-    Optional<BatchNum> optionalBatchNum = batchRepository.findById(1L);
-    if (optionalBatchNum.isPresent()) {
-      BatchNum batchNum = optionalBatchNum.get();
-      return batchNum.getCount();
+    Optional<RedisBatch> optionalRedisBatch = batchRedisRepository.findById(1L);
+    if (optionalRedisBatch.isPresent()) {
+      RedisBatch redisBatch = optionalRedisBatch.get();
+      return redisBatch.getCount();
     }
     return 0;
+  }
+
+  @Override
+  public void clear() {
+    Optional<RedisBatch> optionalRedisBatch = batchRedisRepository.findById(1L);
+    if (optionalRedisBatch.isPresent()) {
+      RedisBatch redisBatch = optionalRedisBatch.get();
+      redisBatch.setCount(1);
+      batchRedisRepository.save(redisBatch);
+    }
   }
 }

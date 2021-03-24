@@ -1,12 +1,10 @@
 package com.example.egobooster.controller;
 
-import com.example.egobooster.service.LoveService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -14,14 +12,13 @@ public class EgoboosterController {
 
   final BoosterController boosterController;
   final LoveController loveController;
-  final LoveService loveService;
 
   //TODO : add error page
 
   @GetMapping("/")
   public String init(Model model) {
     model.addAttribute("booster", boosterController.findRandomBooster().getBody());
-    model.addAttribute("love", loveService.getCount());
+    model.addAttribute("love", loveController.getCount().getBody());
     return "index";
   }
 
