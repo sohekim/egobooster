@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.egobooster.controller.BoosterController;
+import com.example.egobooster.apicontroller.BoosterController;
 import com.example.egobooster.domain.entity.Booster;
 import com.example.egobooster.service.BoosterServiceImpl;
 import java.util.Optional;

@@ -1,5 +1,7 @@
 package com.example.egobooster.controller;
 
+import com.example.egobooster.apicontroller.BoosterController;
+import com.example.egobooster.apicontroller.LoveController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

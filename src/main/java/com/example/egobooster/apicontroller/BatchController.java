@@ -1,4 +1,4 @@
-package com.example.egobooster.controller;
+package com.example.egobooster.apicontroller;
 
 import com.example.egobooster.service.BatchService;
 import lombok.RequiredArgsConstructor;
