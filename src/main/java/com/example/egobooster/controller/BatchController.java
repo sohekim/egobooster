@@ -18,9 +18,9 @@ public class BatchController {
   final BatchService batchService;
 
   @PutMapping("/increment")
-  public ResponseEntity<RedisBatch> executeBatch() {
+  public ResponseEntity executeBatch() {
     RedisBatch redisBatch = batchService.executeBatch();
-    return new ResponseEntity<>(redisBatch, HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @GetMapping("/count")
