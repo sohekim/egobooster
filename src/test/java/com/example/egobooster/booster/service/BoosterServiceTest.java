@@ -32,8 +32,6 @@ public class BoosterServiceTest {
   private BoosterServiceImpl boosterService;
 
   private Booster booster;
-  private Booster booster2;
-  private List<Booster> boosterList;
   private Page<Booster> boosterPage;
 
   @BeforeEach
@@ -42,22 +40,18 @@ public class BoosterServiceTest {
       initIdTest(testInfo);
     } else if ("findBoosters".equals(testInfo.getDisplayName())) {
       initListTest(testInfo);
-    } else {
-      init(testInfo);
     }
   }
 
-  private void init(TestInfo testInfo) {
-  }
 
   private void initIdTest(TestInfo testInfo) {
-    booster = booster.builder().text("testing").build();
+    booster = Booster.builder().text("testing").build();
   }
 
   private void initListTest(TestInfo testInfo) {
-    booster = booster.builder().text("testing").build();
-    booster2 = booster.builder().text("testing2").build();
-    boosterList = new ArrayList<>();
+    booster = Booster.builder().text("testing").build();
+    Booster booster2 = Booster.builder().text("testing2").build();
+    List<Booster> boosterList = new ArrayList<>();
     boosterList.add(booster);
     boosterList.add(booster2);
     boosterPage = new PageImpl<>(boosterList);

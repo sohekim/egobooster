@@ -1,6 +1,5 @@
 package com.example.egobooster.controller;
 
-import com.example.egobooster.domain.redis.RedisBatch;
 import com.example.egobooster.service.BatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,6 @@ public class BatchController {
 
   @PutMapping("/increment")
   public ResponseEntity executeBatch() {
-    RedisBatch redisBatch = batchService.executeBatch();
     return new ResponseEntity<>(HttpStatus.OK);
   }
 

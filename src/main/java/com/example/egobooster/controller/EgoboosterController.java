@@ -44,14 +44,6 @@ public class EgoboosterController {
     return "slip";
   }
 
-//  @GetMapping("/keyword")
-//  public String keyword(Model model,
-//      @RequestParam(name = "keyword") String keyword
-//  ) {
-//    model.addAttribute("booster", boosterController.findBoosterByKeyword(keyword).getBody());
-//    return "index";
-//  }
-
   @GetMapping("/document")
   public String document(Model model) {
     return "document";
