@@ -2,7 +2,6 @@ package com.example.egobooster.service;
 
 import com.example.egobooster.domain.dto.BoosterDto;
 import com.example.egobooster.domain.entity.Booster;
-import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 
@@ -18,6 +17,6 @@ public interface BoosterService {
 
   boolean save(BoosterDto dto);
 
-  String personalize (String boosterText, String giftee);
+  String personalize(String boosterText, String giftee);
 
 }
