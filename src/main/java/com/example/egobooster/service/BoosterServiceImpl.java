@@ -5,7 +5,6 @@ import com.example.egobooster.domain.dto.BoosterDto;
 import com.example.egobooster.domain.entity.Booster;
 import com.example.egobooster.repository.BoosterRepository;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

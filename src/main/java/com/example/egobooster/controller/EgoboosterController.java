@@ -1,5 +1,7 @@
 package com.example.egobooster.controller;
 
+import com.example.egobooster.apicontroller.BoosterController;
+import com.example.egobooster.apicontroller.LoveController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,14 +45,6 @@ public class EgoboosterController {
     model.addAttribute("booster", boosterController.findCustomBooster(id, giftee, gifter).getBody());
     return "slip";
   }
-
-//  @GetMapping("/keyword")
-//  public String keyword(Model model,
-//      @RequestParam(name = "keyword") String keyword
-//  ) {
-//    model.addAttribute("booster", boosterController.findBoosterByKeyword(keyword).getBody());
-//    return "index";
-//  }
 
   @GetMapping("/document")
   public String document(Model model) {

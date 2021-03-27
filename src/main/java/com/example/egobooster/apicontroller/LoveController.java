@@ -1,4 +1,4 @@
-package com.example.egobooster.controller;
+package com.example.egobooster.apicontroller;
 
 import com.example.egobooster.domain.redis.RedisLove;
 import com.example.egobooster.service.LoveService;

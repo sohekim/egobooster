@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +27,13 @@ public class Booster {
   protected Booster(BoosterDto boosterDto) {
     this.text = boosterDto.getText();
     this.updateDate = boosterDto.getUpdateDate();
+  }
+
+  @Builder
+  public Booster(long id, String text, LocalDateTime updateDate) {
+    this.id = id;
+    this.text = text;
+    this.updateDate = updateDate;
   }
 
   public static Booster ofDto(BoosterDto boosterDto) {
