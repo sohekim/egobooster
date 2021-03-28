@@ -123,4 +123,14 @@ $(document).ready(function () {
     }
   });
 
+  $('#personalizeSampleButton').click(function () {
+    document.getElementById('personalizedContainer').style.display = 'block';
+    document.getElementById('subscriptionContainer').style.display = 'none';
+  });
+
+  $('#subscriptionSampleButton').click(function () {
+    document.getElementById('personalizedContainer').style.display = 'none';
+    document.getElementById('subscriptionContainer').style.display = 'block';
+  });
+
 });

@@ -93,7 +93,7 @@
     id="content"
     style="
         width: 80%;
-        height: 200px;
+        min-height: 200px;
         display: flex;
         justify-content: center;
         margin-left: auto;
@@ -106,21 +106,10 @@
     in love with yourself is the first secret to happiness.
   </h2>
 </div>
-<h3
-    class="ui tiny horizontal divider header"
-    style="
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        color: hsl(0, 0%, 97%);
-      "
->
-  .
-</h3>
 
 <!-- Two Columns-->
 <br/>
-<div class="split" style="display: flex; justify-content: center">
+<div class="split" style="display: flex; justify-content: center; margin-top: 1%">
   <div
       id="col-1"
       style="
@@ -170,11 +159,14 @@
         </div>
       </div>
     </div>
+    <div class="medium orange ui basic button" id="personalizeSampleButton"
+         style="width: 100%; border: 2px solid #f2711d; font-weight: bold">
+      Sample Personalized Link
+    </div>
   </div>
 
   <!-- Subscription-->
   <div
-      id="col-2"
       style="
           position: relative;
           width: 40%;
@@ -214,8 +206,86 @@
         </button>
       </div>
     </div>
+    <div class="medium orange ui basic button" id="subscriptionSampleButton" style="
+            width: 100%;
+            margin-top: 2.9%;
+            border: 2px solid #f2711d;
+            font-weight: bold;
+          ">
+      Sample Subscription Email
+    </div>
   </div>
 </div>
+
+<!--divider-->
+<div id="personalizedContainer"
+     style="
+        margin-top: 5%;
+        margin-bottom: 3%;
+        margin-left: 10%;
+        width: 80%;
+        min-height: 100px;
+         display: none;
+      ">
+  <h6 class="ui tiny horizontal divider header" style="
+        width: 100%;
+        margin-top: 3%;
+        color: hsl(0, 0%, 37%);
+      ">
+    <i class="angle down icon" style="margin-left: 25%"></i>
+  </h6>
+  <img th:src="@{/images/threeLogos.png}" alt="" style="width: 18%; margin-top: 3%"/>
+
+  <div class="ui card" id="printcontent" style="
+          width: 100%;
+          height: 300px;
+          display: flex;
+          margin-top: 3%;
+          position: relative;
+          justify-content: center;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 5%;
+        ">
+
+    <h2>Hey Minwoo ,</h2>
+    <h2>To fall in love with yourself is the first secret to happiness.</h2>
+    <h2>From Sohee</h2>
+
+    <img th:src="@{/images/greens.png}" alt=""
+         style="width: 12.5%; position: absolute; bottom: 0; right: 43.75%"/>
+  </div>
+</div>
+
+
+<div id="subscriptionContainer"
+     style="
+        margin-top: 5%;
+        margin-bottom: 3%;
+        margin-left: 10%;
+        margin-left: 10%;
+        width: 80%;
+        min-height: 100px;
+         display: none;
+      ">
+  <h6 class="ui tiny horizontal divider header" style="
+        width: 100%;
+        margin-top: 3%;
+        color: hsl(0, 0%, 37%);
+      ">
+    <i class="angle down icon" style="margin-left: 25%"></i>
+  </h6>
+  <img th:src="@{/images/both.png}" alt="" style="width: 100%"
+  >
+</div>
+
+<div class="ui divider" style="
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      "></div>
 
 <!--Footer-->
 <div class="sohee" style="margin-top: 5%">

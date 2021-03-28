@@ -34,7 +34,7 @@
     id="printcontent"
     style="
         width: 80%;
-        height: 300px;
+        min-height: 250px;
         display: flex;
         margin-top: 3%;
         position: relative;
@@ -50,43 +50,21 @@
           th:text="${booster.getGiftee() == '' ? '' : booster.getGiftee()}"></span>
     <span class="hr5">,</span>
   </h1>
-  </br>
   <h1
       class="ui header"
       style="font-size: 230%"
       th:text="${booster.getText()}"
   ></h1>
-  </br>
   <h1
-      style="font-size: 180%;"
+      class="ui header"
+      style="font-size: 230%"
       th:text="${booster.getGifter() == '' ? '' : '- ' + booster.getGifter()}"
   ></h1>
 
-  <!--  TODO add multiple greens together-->
   <img
-      th:src="@{/images/green.png}"
+      th:src="@{/images/greens.png}"
       alt=""
-      style="width: 2%; position: absolute; bottom: 0; right: 50%"
-  />
-  <img
-      th:src="@{/images/green.png}"
-      alt=""
-      style="width: 2%; position: absolute; bottom: 0; right: 45%"
-  />
-  <img
-      th:src="@{/images/green.png}"
-      alt=""
-      style="width: 2%; position: absolute; bottom: 0; right: 55%"
-  />
-  <img
-      th:src="@{/images/green.png}"
-      alt=""
-      style="width: 2%; position: absolute; bottom: 0; right: 60%"
-  />
-  <img
-      th:src="@{/images/green.png}"
-      alt=""
-      style="width: 2%; position: absolute; bottom: 0; right: 40%"
+      style="width: 10%; position: absolute; bottom: 0; right: 45%"
   />
 </div>
 </body>
