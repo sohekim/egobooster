@@ -1,81 +1,237 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ego Booster</title>
-  <link rel="stylesheet"
-        th:href="@{https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css}"/>
+  <link
+      rel="stylesheet"
+      th:href="@{https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css}"
+  />
 </head>
 
-<body style="background-color: #f2f4f6; margin-top: 5%">
-<center>
-  <i class="big fire icon" style="margin-bottom: 1%"></i>
-  <p style="font-size:20px; font-weight: bold">Ego Booster</p>
-  <p style="font-size:13px; margin-bottom: 1.5%">Find Ego Boosting Quotes That You Deserve<br>Powered
-    By A <a th:href="@{document}">Modern and RESTful API</a></p>
-  <!--  if i want a different URL-->
-  <!--  <button class="small ui button" id="randomButton" onclick="location.href='/random'">Get Random-->
-  <button class="small ui button" id="randomButton">Get Random
-  </button>
-  <div class="small ui inverted action input">
-    <input type="text" placeholder="Find By Keyword..." name="myPlaceholder" value="" id="myPlaceholder"/>
-    <input type="hidden" id="slipId" th:value="${booster.getId()}">
-    <button class="small ui icon button" id="searchButton">
-      <i class="search icon"></i>
-    </button>
-  </div>
-  <!-- <button class="small ui icon button">
-      <i class="refresh icon"></i>
-      </button> -->
-  <div class="ui raised very padded tall stacked segment" id="content" style="width: 50%;
-  margin-top: 1%;
-  margin-bottom: 2%;">
-    <!--    todo if error -->
-    <h2 class="ui header" th:text="${booster.getText()}" id="boosterText"></h2>
-  </div>
+<style>
+  input[type="image"]:focus {
+    outline: none;
+  }
+</style>
 
-  <h5 class="ui horizontal divider header" style="width: 60%">
-    Personalize This Booster
-  </h5>
-  </br>
-  <div class="small ui inverted small form" style="width: 40%">
-    <div class="two fields">
-      <div class="field">
-        <input placeholder="giftee name" type="text" value="" id="giftee"/>
-      </div>
-      <div class="field">
-        <input placeholder="gifter name" type="text" value="" id="gifter"/>
-      </div>
-    </div>
-    <button class="small ui submit button" style="width: 100%;" id="personalizeButton">Get Link
-    </button>
-  </div>
-
-  <h5 class="ui horizontal divider header" style="width: 60%">
-    Subscribe for Daily Ego Booster In Your Mailbox
-  </h5>
-  </br>
-  <div class="ui inverted action input" style="width: 40%">
-    <input type="text" placeholder="Email..." id="subscribePlaceholder" value="">
-    <button class="ui button" id = "subscribeButton">Subscribe</button>
-  </div>
-  </br>
-  <!-- <i class="big github icon"></i> -->
-  <div class="small ui labeled button" tabindex="0" id="love"
-       style="margin-bottom: 1%; margin-top: 4%">
-    <div class="small ui red button">
-      <i class="heart icon"></i> Love
-    </div>
-    <a class="small ui basic red left pointing label" th:text="${love}" id="loveCount">
+<body
+    style="
+      background-color: hsl(0, 0%, 97%);
+      margin-top: 1%;
+      text-align: center;
+    "
+>
+<!-- Link to other Pages -->
+<header>
+  <p
+      style="
+          text-align: end;
+          margin-right: 10%;
+          color: #e9e0e0;
+          font-weight: 600;
+        "
+  >
+    <!-- TODO change swagger URL-->
+    <a
+        href="http://localhost:8080/swagger-ui.html"
+        style="color: black"
+    >
+      <i class="black linkify icon"></i> Ego Booster Swagger API
+      Documentation
     </a>
+    |
+    <a
+        href="https://github.com/sohekim/egobooster"
+        target="_blank"
+        style="color: black"
+    >
+      <i class="black github icon"> </i> Github
+    </a>
+  </p>
+</header>
+
+<!-- Logo -->
+<input
+    type="image"
+    id="randomButton"
+    th:src="@{/images/logoWithText.png}"
+    alt="Submit Form"
+    style="width: 140px; height: 120px; margin-bottom: 10px; margin-top: 1.5%;"
+/>
+
+<div>
+  <i
+      class="arrow up icon"
+      style="margin-left: auto; margin-right: auto"
+  ></i>
+  <p style="font-weight: 600">Click to get new Ego Booster</p>
+</div>
+
+<!-- Search Bar -->
+<div
+    class="medium ui inverted action input"
+    style="width: 80%; margin-top: 2%; font-weight: bold"
+>
+  <input
+      type="text"
+      placeholder="Find Ego Booster By Keyword..."
+      style="font-weight: bold"
+      id="myPlaceholder"
+  />
+  <input type="hidden" id="slipId" th:value="${booster.getId()}"/>
+  <button class="orange medium ui icon button">
+    <i class="search icon" id="searchButton"></i>
+  </button>
+</div>
+
+<!-- Booster Card -->
+<div
+    class="ui card"
+    id="content"
+    style="
+        width: 80%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+      "
+>
+  <h2 class="ui header" th:text="${booster.getText()}" id="boosterText">
+    To fall in love with yourself is the first secret to happiness. To fall
+    in love with yourself is the first secret to happiness.
+  </h2>
+</div>
+<h3
+    class="ui tiny horizontal divider header"
+    style="
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        color: hsl(0, 0%, 97%);
+      "
+>
+  .
+</h3>
+
+<!-- Two Columns-->
+<br/>
+<div class="split" style="display: flex; justify-content: center">
+  <div
+      id="col-1"
+      style="
+          position: relative;
+          width: 40%;
+          float: left;
+          height: 100%;
+          padding-left: 1%;
+          margin-top: -1%;
+          padding-right: 1%;
+          z-index: 1010101010;
+        "
+  >
+    <!-- Personalize-->
+    <h2 class="small ui header" style="text-align: start">
+      <i class="child icon"></i>
+      <div class="content" style="text-align: start; font-size: 17px">
+        Personalize This Booster
+        <div
+            class="sub header"
+            style="text-align: start; font-size: 14px; margin-top: 3px"
+        >
+          Get custom link and share it with your friends
+        </div>
+      </div>
+    </h2>
+    <div class="ui inverted medium form" style="width: 100%">
+      <div class="two fields">
+        <div class="field">
+          <input
+              placeholder="giftee name"
+              type="text"
+              value=""
+              id="giftee"
+          />
+        </div>
+        <div class="field">
+          <input
+              placeholder="gifter name"
+              type="text"
+              value=""
+              id="gifter"
+          />
+        </div>
+        <div class="medium orange ui submit button" id="personalizeButton">
+          Get
+        </div>
+      </div>
+    </div>
   </div>
-  <p style="font-size:12px; font-weight: bold">Made By <a href="https://sohekim.github.io/"
-                                                          target="_blank">Sohee Kim</a> For My
-    Depressed Friends</p>
-</center>
+
+  <!-- Subscription-->
+  <div
+      id="col-2"
+      style="
+          position: relative;
+          width: 40%;
+          float: left;
+          height: 100%;
+          padding-left: 2.5%;
+          margin-top: -1%;
+          z-index: 1010101010;
+        "
+  >
+    <h2 class="small ui header" style="text-align: start">
+      <i class="envelope outline icon"></i>
+      <div class="content" style="text-align: start; font-size: 17px">
+        Subscription
+        <div
+            class="sub header"
+            style="text-align: start; font-size: 14px; margin-top: 3px"
+        >
+          Start your day with daily Ego Booster Email
+        </div>
+      </div>
+    </h2>
+    <div>
+      <div class="medium ui inverted input" style="width: 100%">
+        <input
+            type="text"
+            placeholder="Search..."
+            id="subscribePlaceholder"
+            value=""
+        />
+        <button
+            class="medium orange ui button"
+            id="subscribeButton"
+            style="margin-left: 5px"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+<div class="sohee" style="margin-top: 5%">
+  <a
+      href="https://sohekim.github.io/"
+      style="color: black"
+      target="_blank"
+  >
+    <img th:src="@{/images/builtSohee.png}" alt="sohee" style="width: 250px">
+  </a>
+</div>
+<div>
+  <img th:src="@{/images/thanks.png}" style="width: 300px"/></div>
+<div>
+  <img th:src="@{/images/green.png}" alt="" style="width: 30px; margin-top: 2%"/>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script th:src="@{boost.js}"></script>
 </body>
