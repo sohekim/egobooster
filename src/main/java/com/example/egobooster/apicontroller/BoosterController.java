@@ -92,8 +92,9 @@ public class BoosterController {
       return new ResponseEntity("booster not found", HttpStatus.NOT_FOUND);
     }
     CustomBoosterDto customBoosterDto = CustomBoosterConverter.ofEntity(booster.get());
-    customBoosterDto.setText(boosterService.personalize(customBoosterDto.getText(), giftee));
+    customBoosterDto.setText(customBoosterDto.getText());
     customBoosterDto.setGifter(gifter);
+    customBoosterDto.setGiftee(giftee);
     return new ResponseEntity<>(customBoosterDto,
         HttpStatus.OK);
   }

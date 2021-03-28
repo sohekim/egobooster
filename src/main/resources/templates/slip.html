@@ -24,7 +24,7 @@
     <img
         th:src="@{/images/threeLogos.png}"
         alt=""
-        style="width: 180px; margin-top: 15px"
+        style="width: 250px; margin-top: 15px"
     />
   </a>
 </div>
@@ -44,12 +44,12 @@
         padding: 5%;
       "
 >
-  <!--  todo-->
-  <!--  add gitee to dto-->
-  <!--  <h1-->
-  <!--      style="font-size: 200%"-->
-  <!--      th:text="${booster.getGifter() == '' ? '' : 'To. ' + booster.get()}"-->
-  <!--  ></h1>-->
+  <h1 style="font-size: 230%;">
+    <span class="hr3">Hey</span>
+    <span class="hr4" style="color: #ff7019"
+          th:text="${booster.getGiftee() == '' ? '' : booster.getGiftee()}"></span>
+    <span class="hr5">,</span>
+  </h1>
   </br>
   <h1
       class="ui header"
@@ -58,8 +58,8 @@
   ></h1>
   </br>
   <h1
-      style="font-size: 200%"
-      th:text="${booster.getGifter() == '' ? '' : 'From. ' + booster.getGifter()}"
+      style="font-size: 180%;"
+      th:text="${booster.getGifter() == '' ? '' : '- ' + booster.getGifter()}"
   ></h1>
 
   <!--  TODO add multiple greens together-->
