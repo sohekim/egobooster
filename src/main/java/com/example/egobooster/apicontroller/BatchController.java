@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,6 +19,15 @@ public class BatchController {
 
   @PutMapping("/increment")
   public ResponseEntity executeBatch() {
+    batchService.executeBatch();
+    return new ResponseEntity<>(HttpStatus.OK);
+  }
+
+  @PutMapping("/set")
+  public ResponseEntity setBatchNum(
+      @RequestParam(required = false, value = "num") Integer num
+  ) {
+    batchService.setBatch(num);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
@@ -27,9 +37,9 @@ public class BatchController {
   }
 
   @PutMapping("/clear")
-  public ResponseEntity<Integer> clearBatch() {
+  public ResponseEntity clearBatch() {
     batchService.clear();
-    return new ResponseEntity<>(batchService.getCount(), HttpStatus.OK);
+    return new ResponseEntity(HttpStatus.OK);
   }
 
 }
