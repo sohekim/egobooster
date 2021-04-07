@@ -20,10 +20,10 @@ $(document).ready(function () {
             $('#myPlaceholder').text('');
           },
           error: function (xhr, status, error) {
-            $('#myPlaceholder').val("");
             alert("Oops, No booster found containing " +
                 $('#myPlaceholder').val() +
                 ".\nPlease try another keyword!");
+            $('#myPlaceholder').val("");
           }
         }
     );

@@ -159,10 +159,14 @@
         </div>
       </div>
     </div>
-    <div class="medium orange ui basic button" id="personalizeSampleButton"
-         style="width: 100%; border: 2px solid #f2711d; font-weight: bold">
-      Sample Personalized Link
-    </div>
+
+    <button class="ui button" id="personalizeSampleButton" style="color: #f2711d; padding:0;
+    background: transparent;
+    width: 100%;
+    text-align: start">
+      <i class="angle down icon"></i>Check out an example
+    </button>
+
   </div>
 
   <!-- Subscription-->
@@ -206,14 +210,14 @@
         </button>
       </div>
     </div>
-    <div class="medium orange ui basic button" id="subscriptionSampleButton" style="
-            width: 100%;
-            margin-top: 2.9%;
-            border: 2px solid #f2711d;
-            font-weight: bold;
-          ">
-      Sample Subscription Email
-    </div>
+
+    <button class="ui button" id="subscriptionSampleButton" style="color: #f2711d; padding:0;
+    background: transparent;
+    width: 100%;
+    margin-top: 20px;
+    text-align: start">
+      <i class="angle down icon"></i>Check out an example
+    </button>
   </div>
 </div>
 
@@ -227,13 +231,14 @@
         min-height: 100px;
          display: none;
       ">
-  <h6 class="ui tiny horizontal divider header" style="
+  <div class="ui divider" style="
         width: 100%;
-        margin-top: 3%;
-        color: hsl(0, 0%, 37%);
-      ">
-    <i class="angle down icon" style="margin-left: 25%"></i>
-  </h6>
+        margin-top: 5%;
+        margin-bottom: 5%;
+      "></div>
+  <h3>
+    Example Personalized Booster
+  </h3>
   <img th:src="@{/images/threeLogos.png}" alt="" style="width: 18%; margin-top: 3%"/>
 
   <div class="ui card" id="printcontent" style="
@@ -268,14 +273,15 @@
         min-height: 100px;
          display: none;
       ">
-  <h6 class="ui tiny horizontal divider header" style="
+  <div class="ui divider" style="
         width: 100%;
-        margin-top: 3%;
-        color: hsl(0, 0%, 37%);
-      ">
-    <i class="angle down icon" style="margin-left: 25%"></i>
-  </h6>
-  <img th:src="@{/images/both.png}" alt="" style="width: 100%"
+        margin-top: 5%;
+        margin-bottom: 5%;
+      "></div>
+  <h3>
+    Example Ego Booster Subscription Email
+  </h3>
+  <img th:src="@{/images/both.png}" alt="" style="width: 100%; margin-top: 30px"
   >
 </div>
 
