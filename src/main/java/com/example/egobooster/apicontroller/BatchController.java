@@ -1,8 +1,6 @@
 package com.example.egobooster.apicontroller;
 
 import com.example.egobooster.service.BatchService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +18,6 @@ public class BatchController {
   final BatchService batchService;
 
   @PutMapping("/set")
-  @ApiImplicitParams({
-      @ApiImplicitParam(name = "num", value = "batch num", required = true, paramType = "query", dataType = "Integer")
-  })
   public ResponseEntity setBatchNum(
       @RequestParam(required = true, value = "num") Integer num
   ) {
