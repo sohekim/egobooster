@@ -41,7 +41,7 @@ public class BoosterController {
 
   @GetMapping("/{id}")
   @ApiImplicitParams({
-      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, defaultValue = "1", paramType = "path", dataType = "Long")
+      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, defaultValue = "1", paramType = "path", dataType = "String")
   })
   public ResponseEntity<BoosterDto> findBoosterById(@PathVariable(value = "id") Long id) {
     Optional<Booster> booster = boosterService.findBoosterById(id);
@@ -95,7 +95,7 @@ public class BoosterController {
 
   @GetMapping("/{id}/personalize")
   @ApiImplicitParams({
-      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, paramType = "path", dataType = "Long")
+      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, paramType = "path", dataType = "String")
   })
   public ResponseEntity<CustomBoosterDto> findCustomBooster(@PathVariable(value = "id") Long id,
       @RequestParam(value = "giftee", defaultValue = "") @Nullable String giftee,
