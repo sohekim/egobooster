@@ -15,12 +15,14 @@ public class CustomBoosterDto {
   private String text;
   private LocalDateTime updateDate;
   private String gifter;
+  private String giftee;
 
   public CustomBoosterDto(Booster entity) {
     this.id = entity.getId();
     this.text = entity.getText();
     this.updateDate = entity.getUpdateDate();
     this.gifter = null;
+    this.giftee = null;
   }
 
   public static CustomBoosterDto ofEntity(Booster entity) {

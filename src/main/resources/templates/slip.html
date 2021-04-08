@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ego Booster</title>
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+  <title>Ego Booster Slip</title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+  />
 </head>
 
-<body style="background-color: #f2f4f6; margin-left: 17.5%; margin-right: 17.5%; margin-top: 10%">
-<center>
-<div class="ui raised very padded tall stacked segment" id="printcontent">
-  <p style="font-size:26px; font-weight: bold" th:text="${booster.getText()}"></b></p>
-  <p style="font-size:18px;"
-     th:text="${booster.getGifter() == '' ? '' : '-- ' + booster.getGifter()}"></p>
-</div>
-<h4><a th:href="@{/}" target="_blank">Ego-Booster.com</a></h4>
-</center>
-</body>
+<body
+    style="
+      background-color: hsl(0, 0%, 98%);
+      margin-top: 5%;
+      text-align: center;
+    "
+>
 
+<div>
+  <a th:href="@{/}" target="_blank">
+    <img
+        th:src="@{/images/threeLogos.png}"
+        alt=""
+        style="width: 250px; margin-top: 15px"
+    />
+  </a>
+</div>
+
+<div
+    class="ui card"
+    id="printcontent"
+    style="
+        width: 80%;
+        min-height: 250px;
+        display: flex;
+        margin-top: 3%;
+        position: relative;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+      "
+>
+  <h1 style="font-size: 230%;">
+    <span class="hr3">Hey</span>
+    <span class="hr4" style="color: #ff7019"
+          th:text="${booster.getGiftee() == '' ? '' : booster.getGiftee()}"></span>
+    <span class="hr5">,</span>
+  </h1>
+  <h1
+      class="ui header"
+      style="font-size: 230%"
+      th:text="${booster.getText()}"
+  ></h1>
+  <h1
+      class="ui header"
+      style="font-size: 230%"
+      th:text="${booster.getGifter() == '' ? '' : '- ' + booster.getGifter()}"
+  ></h1>
+
+  <img
+      th:src="@{/images/greens.png}"
+      alt=""
+      style="width: 10%; position: absolute; bottom: 0; right: 45%"
+  />
+</div>
+</body>
 </html>

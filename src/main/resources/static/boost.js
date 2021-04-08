@@ -20,10 +20,10 @@ $(document).ready(function () {
             $('#myPlaceholder').text('');
           },
           error: function (xhr, status, error) {
-            $('#myPlaceholder').val("");
             alert("Oops, No booster found containing " +
                 $('#myPlaceholder').val() +
                 ".\nPlease try another keyword!");
+            $('#myPlaceholder').val("");
           }
         }
     );
@@ -121,6 +121,16 @@ $(document).ready(function () {
     } else {
       window.open(`/${id}/${giftee}/${gifter}`)
     }
+  });
+
+  $('#personalizeSampleButton').click(function () {
+    document.getElementById('personalizedContainer').style.display = 'block';
+    document.getElementById('subscriptionContainer').style.display = 'none';
+  });
+
+  $('#subscriptionSampleButton').click(function () {
+    document.getElementById('personalizedContainer').style.display = 'none';
+    document.getElementById('subscriptionContainer').style.display = 'block';
   });
 
 });

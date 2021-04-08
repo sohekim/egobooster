@@ -19,8 +19,27 @@ public class BatchServiceImpl implements BatchService {
       batchRedisRepository.save(new RedisBatch(1L, 1));
       optionalBatchNum = batchRedisRepository.findById(1L);
     }
+    if (optionalBatchNum.get().getCount() == null) {
+      optionalBatchNum.get().setCount(0);
+    }
     RedisBatch redisBatch = optionalBatchNum.get();
     redisBatch.setCount(redisBatch.getCount() + 1);
+    batchRedisRepository.save(redisBatch);
+    return redisBatch;
+  }
+
+  @Override
+  public RedisBatch setBatch(Integer num) {
+    Optional<RedisBatch> optionalBatchNum = batchRedisRepository.findById(1L);
+    if (optionalBatchNum.isEmpty()) {
+      batchRedisRepository.save(new RedisBatch(1L, 1));
+      optionalBatchNum = batchRedisRepository.findById(1L);
+    }
+    if (optionalBatchNum.get().getCount() == null) {
+      optionalBatchNum.get().setCount(0);
+    }
+    RedisBatch redisBatch = optionalBatchNum.get();
+    redisBatch.setCount(num);
     batchRedisRepository.save(redisBatch);
     return redisBatch;
   }
