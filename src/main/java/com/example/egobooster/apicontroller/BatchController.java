@@ -19,12 +19,6 @@ public class BatchController {
 
   final BatchService batchService;
 
-//  @PutMapping("/increment")
-//  public ResponseEntity executeBatch() {
-//    batchService.executeBatch();
-//    return new ResponseEntity<>(HttpStatus.OK);
-//  }
-
   @PutMapping("/set")
   @ApiImplicitParams({
       @ApiImplicitParam(name = "num", value = "batch num", required = true, paramType = "query", dataType = "Integer")
