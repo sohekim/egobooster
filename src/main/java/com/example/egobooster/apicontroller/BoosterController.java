@@ -7,6 +7,8 @@ import com.example.egobooster.domain.dto.CustomBoosterDto;
 import com.example.egobooster.domain.entity.Booster;
 import com.example.egobooster.service.BoosterService;
 import com.sun.istack.Nullable;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -38,6 +40,9 @@ public class BoosterController {
   }
 
   @GetMapping("/{id}")
+  @ApiImplicitParams({
+      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, defaultValue = "1", paramType = "path", dataType = "Long")
+  })
   public ResponseEntity<BoosterDto> findBoosterById(@PathVariable(value = "id") Long id) {
     Optional<Booster> booster = boosterService.findBoosterById(id);
     if (booster.isEmpty()) {
@@ -47,6 +52,11 @@ public class BoosterController {
   }
 
   @GetMapping
+  @ApiImplicitParams({
+      @ApiImplicitParam(name = "keyword", value = "keyword", required = false, paramType = "query", dataType = "String"),
+      @ApiImplicitParam(name = "page", value = "page", required = false, defaultValue = "1", paramType = "query", dataType = "Integer"),
+      @ApiImplicitParam(name = "size", value = "size", required = false, defaultValue = "1", paramType = "query", dataType = "Integer"),
+  })
   public ResponseEntity<List<BoosterDto>> findBoosters(
       @RequestParam(required = false, value = "keyword") String keyword,
       @RequestParam(required = false, defaultValue = "0") Integer page,
@@ -84,6 +94,9 @@ public class BoosterController {
   }
 
   @GetMapping("/{id}/personalize")
+  @ApiImplicitParams({
+      @ApiImplicitParam(name = "id", value = "egobooster id", required = true, paramType = "path", dataType = "Long")
+  })
   public ResponseEntity<CustomBoosterDto> findCustomBooster(@PathVariable(value = "id") Long id,
       @RequestParam(value = "giftee", defaultValue = "") @Nullable String giftee,
       @RequestParam(value = "gifter", defaultValue = "") @Nullable String gifter) {

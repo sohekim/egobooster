@@ -5,7 +5,8 @@ plugins {
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+//snapshot version control
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '15'
 
 configurations {

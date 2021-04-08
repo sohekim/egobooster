@@ -6,7 +6,7 @@ spring:
   thymeleaf:
     cache: false
   redis:
-    host: egobooster-redis.z3suka.0001.usw1.cache.amazonaws.com
+    host: egobooster-elasticache.z3suka.0001.usw1.cache.amazonaws.com
     port: 6379
 
   datasource:
