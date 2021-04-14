@@ -76,7 +76,8 @@ $(document).ready(function () {
   }
 
   $('#subscribeButton').click(function () {
-    if (!validateEmail($('#subscribePlaceholder').val())) {
+    let address = $('#subscribePlaceholder').val().trim();
+    if (!validateEmail(address)) {
       alert(
           "Please enter a valid email address.");
     } else {
@@ -84,7 +85,7 @@ $(document).ready(function () {
           {
             type: "POST",
             url: '/api/v1/subscriptions',
-            data: JSON.stringify({email: $('#subscribePlaceholder').val()}),
+            data: JSON.stringify({email: address}),
             contentType: "application/json",
             dataType: "text",
             success: function (res) {
