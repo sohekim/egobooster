@@ -24,4 +24,4 @@ spring:
     properties:
       hibernate.format_sql: true
 
-key: !thgmlrkWKddldi5959
+key: thgmlrkWKddldi5959
