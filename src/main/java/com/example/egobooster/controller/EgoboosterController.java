@@ -15,8 +15,6 @@ public class EgoboosterController {
   final BoosterController boosterController;
   final LoveController loveController;
 
-  //TODO : add error page
-
   @GetMapping("/")
   public String init(Model model) {
     model.addAttribute("booster", boosterController.findRandomBooster().getBody());
