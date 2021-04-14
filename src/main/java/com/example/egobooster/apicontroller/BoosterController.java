@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,8 +31,17 @@ public class BoosterController {
 
   final BoosterService boosterService;
 
+  @Value("${key}")
+  private String myKey;
+
   @PostMapping
-  public ResponseEntity<String> save(@RequestBody BoosterDto boosterDto) {
+  public ResponseEntity<String> save(@RequestHeader("key") String key,
+      @RequestBody BoosterDto boosterDto) {
+
+    if (!myKey.equals(key)) {
+      return new ResponseEntity<>("Ooops permission denied", HttpStatus.FORBIDDEN);
+    }
+
     if (!boosterService.save(boosterDto)) {
       return new ResponseEntity<>("booster already exists", HttpStatus.SEE_OTHER);
     }
@@ -59,9 +70,11 @@ public class BoosterController {
       } else {
         boosterPage = boosterService.findBoosters(page, size);
       }
+
       if (boosterPage.isEmpty()) {
         throw new Exception();
       }
+
       List<Booster> boosters = boosterPage.getContent();
       return new ResponseEntity<>(BoosterConverter.ofEntities(boosters),
           HttpStatus.OK);
