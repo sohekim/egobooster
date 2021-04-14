@@ -1,6 +1,7 @@
 package com.example.egobooster.apicontroller;
 
 import com.example.egobooster.service.BatchService;
+import com.example.egobooster.service.BoosterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class BatchController {
 
   final BatchService batchService;
+  final BoosterService boosterService;
 
   @PutMapping("/set")
   public ResponseEntity setBatchNum(
-      @RequestParam(required = true, value = "num") Integer num
+      @RequestParam(value = "num") Integer num
   ) {
     batchService.setBatch(num);
     return new ResponseEntity<>(HttpStatus.OK);
@@ -27,7 +29,15 @@ public class BatchController {
 
   @GetMapping
   public ResponseEntity<Integer> getBatchNum() {
-    return new ResponseEntity<>(batchService.getCount(), HttpStatus.OK);
+    Integer batchCount = batchService.getCount();
+    Long lastId = boosterService.getLastBoosterId();
+
+    if (batchCount > lastId) {
+      batchService.clear();
+      return new ResponseEntity<>(batchService.getCount(), HttpStatus.OK);
+    } else {
+      return new ResponseEntity<>(batchCount, HttpStatus.OK);
+    }
   }
 
   @PutMapping("/clear")

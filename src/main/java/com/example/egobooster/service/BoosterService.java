@@ -19,4 +19,6 @@ public interface BoosterService {
 
   String personalize(String boosterText, String giftee);
 
+  Long getLastBoosterId();
+
 }

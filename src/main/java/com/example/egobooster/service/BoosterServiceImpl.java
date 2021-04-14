@@ -55,4 +55,10 @@ public class BoosterServiceImpl implements BoosterService {
     }
     return boosterText;
   }
+
+  @Override
+  public Long getLastBoosterId() {
+    Booster booster = boosterRepository.findTopByOrderByIdDesc();
+    return booster.getId();
+  }
 }

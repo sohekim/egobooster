@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BoosterRepository extends JpaRepository<Booster, Long> {
 
-  boolean existsByText (String text);
+  boolean existsByText(String text);
 
   Page<Booster> findAllByTextContaining(String text, Pageable pg);
 
   Integer countByIdGreaterThanEqual(Long id);
+
+  Booster findTopByOrderByIdDesc();
 }
