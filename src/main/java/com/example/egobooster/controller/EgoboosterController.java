@@ -46,9 +46,4 @@ public class EgoboosterController {
     return "slip";
   }
 
-  @GetMapping("/document")
-  public String document(Model model) {
-    return "document";
-  }
-
 }
