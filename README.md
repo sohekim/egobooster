@@ -25,7 +25,6 @@
   - [Batch](#batch)
   - [Subscription](#subscription)
 - [Feedback](#feedback)
-- [Acknowledgement](#acknowledgement)
 
 
 
@@ -39,7 +38,7 @@ A few of the things you can do with EgoBooster 🔥
 
 
 ## Implementation
-ff
+implementation
 
 ## API
 
@@ -47,8 +46,6 @@ ff
 ### Batch
 ### Subscription
 
-## Feedback
-ff
 
-## Acknowledgement
-ff
+## Feedback
+More than welcome to send any feedback / feature request by filling an issue or email
