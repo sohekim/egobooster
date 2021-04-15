@@ -38,7 +38,15 @@ A few of the things you can do with EgoBooster 🔥
 
 
 ## Implementation
-implementation
+
+| Framework            | Deployment     | Database               | Others    |
+| -------------------- |----------------| -----------------------| ----------|
+| Spring Boot          | AWS EC2.       | Spring Boot Data Redis |Junit      |
+| Spring Boot Data JPA | AWS RDS        | MySQL                  |Thymeleaf Template Engine |
+| Spring Boot Web      | AWS ElastiCache|                        |Swagger    |
+
+
+add image
 
 ## API
 
