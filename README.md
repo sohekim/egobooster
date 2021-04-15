@@ -64,14 +64,11 @@ A few of the things you can do with EgoBooster 🔥
 | POST         | Create new resource      |
 | DELETE       | Delete given resource       |
 
-### Booster
-Booster related REST Endpoints
+### Booster related REST Endpoints
 
 #### Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
-
-**Return Value:** Boosters
 
 **Possible Parameters**
 
@@ -83,9 +80,9 @@ Endpoint to get all or filtered Boosters
 | size       | Integer        |size of paging   |No           |
 
 
-**Response**
+**Sample Responses**
 
-**Code 200**
+**200 OK**
 ```
 [
   {
@@ -96,6 +93,7 @@ Endpoint to get all or filtered Boosters
 ]
 ```
 
+**404 Not Found**
 
 
 ### - Batch
