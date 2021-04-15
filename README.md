@@ -22,10 +22,7 @@
 
 - [Features](#features)
 - [Implementation](#implementation)
-- [API](#api)
-  - [Booster](#booster)
-  - [Batch](#batch)
-  - [Subscription](#subscription)
+- [API Documentation](#api)
 - [Feedback](#feedback)
 </br>
 
@@ -56,7 +53,7 @@ A few of the things you can do with EgoBooster 🔥
 
 
 
-## API
+## API Documentation
 
 ### Definition of REST
 
@@ -101,8 +98,8 @@ Endpoint to get all or filtered Boosters
 
 
 
-### Batch
-### Subscription
+### - Batch
+### - Subscription
 </br>
 
 
