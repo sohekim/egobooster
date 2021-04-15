@@ -16,6 +16,8 @@
 
 
 
+
+
 ## Table of Contents
 
 - [Features](#features)
@@ -25,6 +27,8 @@
   - [Batch](#batch)
   - [Subscription](#subscription)
 - [Feedback](#feedback)
+</br>
+
 
 
 
@@ -34,6 +38,8 @@ A few of the things you can do with EgoBooster 🔥
 * Find Ego Booster Quotes
 * Email Subscription Service
 * Public Ego Boosters RESTful API
+</br>
+
 
 
 
@@ -45,14 +51,61 @@ A few of the things you can do with EgoBooster 🔥
 | Spring Boot Data JPA | AWS RDS        | MySQL                  |Thymeleaf Template Engine |
 | Spring Boot Web      | AWS ElastiCache|                        |Swagger    |
 
+</br>
 
-add image
+
+
 
 ## API
 
+### Definition of REST
+
+| HTTP Method  | Usage           |
+| ------------ |-----------------|
+| GET          | Read existing resource        |
+| PUT          | Overwrite existing resource    |
+| POST         | Create new resource      |
+| DELETE       | Delete given resource       |
+
 ### Booster
+Booster related REST Endpoints
+
+#### Retrieve Boosters
+Endpoint to get all or filtered Boosters
+> **GET** /api/v1/boosters
+
+**Return Value:** Boosters
+
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description      |Required     |
+| -----------|----------------|-----------------|-------------| 
+| keyword    | String         |keyword to query |No           |
+| page       | Integer        |page of paging   |No           |
+| size       | Integer        |size of paging   |No           |
+
+
+**Response**
+
+**Code 200**
+```
+[
+  {
+    "id": 0,
+    "text": "string",
+    "updateDate": "2021-04-15T10:34:28.155Z"
+  }
+]
+```
+
+
+
 ### Batch
 ### Subscription
+</br>
+
+
 
 
 ## Feedback
