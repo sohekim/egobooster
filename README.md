@@ -12,9 +12,10 @@
 <p align="center">
   <b>API Server and Web Server Built with Spring Boot Deployed To AWS.</b>
 </p>
+</br>
 
 
-### Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -27,23 +28,31 @@
 - [Acknowledgement](#acknowledgement)
 
 
-### Introduction
-fff
+## Introduction
+Hype yourself up by finding Ego Boosting quotes and share them with your friends using personalized links. 
 
-### Features 
+Subscribe to get weekly email to start your day boosted 🔥 
+
+## Features 
+A few of the things you can do with EgoBooster:
+* Personalize Ego Booster Quotes with custom links
+* Find Ego Booster Quotes
+* Email Subscription Service
+* Public Ego Boosters RESTful API
+
+
+
+## Implementation
 ff
 
-### Implementation
+## API
+
+### Booster
+### Batch
+### Subscription
+
+## Feedback
 ff
 
-### API
-
-#### Booster
-#### Batch
-#### Subscription
-
-### Feedback
-ff
-
-### Acknowledgement
+## Acknowledgement
 ff
