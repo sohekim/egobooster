@@ -15,9 +15,9 @@
 </br>
 
 
+
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [Features](#features)
 - [Implementation](#implementation)
 - [API](#api)
@@ -28,13 +28,9 @@
 - [Acknowledgement](#acknowledgement)
 
 
-## Introduction
-Hype yourself up by finding Ego Boosting quotes and share them with your friends using personalized links. 
-
-Subscribe to get weekly email to start your day boosted 🔥 
 
 ## Features 
-A few of the things you can do with EgoBooster:
+A few of the things you can do with EgoBooster 🔥 
 * Personalize Ego Booster Quotes with custom links
 * Find Ego Booster Quotes
 * Email Subscription Service
