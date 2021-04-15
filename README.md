@@ -64,9 +64,17 @@ A few of the things you can do with EgoBooster 🔥
 | POST         | Create new resource      |
 | DELETE       | Delete given resource       |
 
+</br>
+
+### API KEY
+
+To POST or PUT resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
+
+</br>
+
 ### Booster related REST Endpoints
 
-#### Retrieve Boosters
+### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
 
@@ -75,9 +83,9 @@ Endpoint to get all or filtered Boosters
 
 | Parameter  | Parameter Type |Description      |Required     |
 | -----------|----------------|-----------------|-------------| 
-| keyword    | String         |keyword to query |No           |
-| page       | Integer        |page of paging   |No           |
-| size       | Integer        |size of paging   |No           |
+| keyword    | @QueryParam    |keyword to query |No           |
+| page       | @QueryParam    |page of paging   |No           |
+| size       | @QueryParam    |size of paging   |No           |
 
 
 **Sample Responses**
@@ -95,9 +103,34 @@ Endpoint to get all or filtered Boosters
 
 **404 Not Found**
 
+### 2. Save a Booster
+Endpoint to save a Booster
+> **POST** /api/v1/boosters
 
-### - Batch
-### - Subscription
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description      |Required     |
+| -----------|----------------|-----------------|-------------| 
+| boosterDto | @QueryParam    |booster to save  |Yes          |
+
+**Sample Booster DTO**
+
+```
+{
+    "text" : "We generate fears while we sit. We overcome them by action."
+}
+```
+
+
+**Sample Responses**
+
+**201 Created**
+
+**303 See Other**
+
+**403 Forbidden**
+
 </br>
 
 
