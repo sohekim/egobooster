@@ -8,10 +8,10 @@
 
 </br>
 <p align="center">
-  <b>Find, Share, and Subscribe To Ego Booster.</b>
+  <b>Find, Share, and Subscribe To Ego Booster</b>
   <p>
 <p align="center">
-  <b>API Server and Web Server Built with Spring Boot Deployed To AWS.</b>
+  <b>API Server and Web Server Built with Spring Boot Deployed To AWS</b>
 </p>
 
 </br>
@@ -21,7 +21,7 @@
 
 - [Features](#features)
 - [Implementation](#implementation)
-- [API Documentation](#api)
+- [API Documentation](#api-documentation)
 - [Feedback](#feedback)
 
 </br>
@@ -210,4 +210,5 @@ Endpoint to personalize a Booster
 </br>
 
 ## Feedback
-More than welcome to send any feedback / feature request by filling an issue or email
+More than welcome to send any feedback / feature request by filling an issue or email 🐻 🐰
+
