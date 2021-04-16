@@ -77,6 +77,8 @@ To access the enpoints to write or delete resources, you need an API Key in your
 
 ### Booster related REST Endpoints
 
+Please reference [Swagger Documentation](http://egobooster.net/swagger-ui/index.html#/) for all REST Endpoints
+
 #### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
@@ -114,6 +116,8 @@ Endpoint to get all or filtered Boosters
 ```
 
 - Return Value : **404 Not Found**
+</br>
+
 
 #### 2. Save a Booster
 Endpoint to save a Booster
@@ -150,6 +154,62 @@ Endpoint to save a Booster
 - Return Value : **409 Conflict**
 
 - Return Value : **403 Forbidden**
+
+</br>
+
+
+
+
+#### 3. Personalize a Booster
+Endpoint to personalize a Booster
+> **POST** /api/v1/boosters/{id}/personalize
+
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description               |Required     |
+| -----------|----------------|--------------------------|-------------| 
+| id         | @Path          |booster id                |Yes          |
+| giftee     | @QueryParam    |person to receive booster |No           |
+| gifter     | @QueryParam    |person to give booster    |No           |
+
+
+**Sample Responses**
+
+- Return Value : **200 OK**
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "",
+    "giftee": ""
+}
+```
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "Sohee",
+    "giftee": ""
+}
+```
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "Sohee",
+    "giftee": "Minwoo"
+}
+```
+
+- Return Value : **404 Not Found**
+
 
 </br>
 
