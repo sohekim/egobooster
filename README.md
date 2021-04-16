@@ -1,33 +1,140 @@
+</br>
 <p align="center">
   <a href="http://egobooster.net/">
-    <img alt="GitPoint" title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/logoWithText.png" width="200">
+    <img alt="GitPoint" title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/logoWithText.png" width="180">
   </a>
 </p>
 
-### Table of Contents
+</br>
+<p align="center">
+  <b>Find, Share, and Subscribe To Ego Booster.</b>
+  <p>
+<p align="center">
+  <b>API Server and Web Server Built with Spring Boot Deployed To AWS.</b>
+</p>
+</br>
 
-- [Introduction](#introduction)
+
+
+
+
+## Table of Contents
+
 - [Features](#features)
 - [Implementation](#implementation)
-- [API Specification](#api)
+- [API Documentation](#api)
 - [Feedback](#feedback)
-- [Acknowledgement](#acknowledgement)
+</br>
 
 
-### Introduction
-fff
 
-### Features 
-ff
 
-### Implementation
-ff
+## Features 
+A few of the things you can do with EgoBooster 🔥 
+* Personalize Ego Booster Quotes with custom links
+* Find Ego Booster Quotes
+* Email Subscription Service
+* Public Ego Boosters RESTful API
+</br>
 
-### API
-ff
 
-### Feedback
-ff
 
-### Acknowledgement
-ff
+
+## Implementation
+
+| Framework            | Deployment     | Database               | Others    |
+| -------------------- |----------------| -----------------------| ----------|
+| Spring Boot          | AWS EC2.       | Spring Boot Data Redis |Junit      |
+| Spring Boot Data JPA | AWS RDS        | MySQL                  |Thymeleaf Template Engine |
+| Spring Boot Web      | AWS ElastiCache|                        |Swagger    |
+
+</br>
+
+
+
+
+## API Documentation
+
+### Definition of REST
+
+| HTTP Method  | Usage           |
+| ------------ |-----------------|
+| GET          | Read existing resource        |
+| PUT          | Overwrite existing resource    |
+| POST         | Create new resource      |
+| DELETE       | Delete given resource       |
+
+</br>
+
+### API KEY
+
+To POST or PUT resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
+
+</br>
+
+### Booster related REST Endpoints
+
+### 1. Retrieve Boosters
+Endpoint to get all or filtered Boosters
+> **GET** /api/v1/boosters
+
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description      |Required     |
+| -----------|----------------|-----------------|-------------| 
+| keyword    | @QueryParam    |keyword to query |No           |
+| page       | @QueryParam    |page of paging   |No           |
+| size       | @QueryParam    |size of paging   |No           |
+
+
+**Sample Responses**
+
+**200 OK**
+```
+[
+  {
+    "id": 0,
+    "text": "string",
+    "updateDate": "2021-04-15T10:34:28.155Z"
+  }
+]
+```
+
+**404 Not Found**
+
+### 2. Save a Booster
+Endpoint to save a Booster
+> **POST** /api/v1/boosters
+
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description      |Required     |
+| -----------|----------------|-----------------|-------------| 
+| boosterDto | @QueryParam    |booster to save  |Yes          |
+
+**Sample Booster DTO**
+
+```
+{
+    "text" : "We generate fears while we sit. We overcome them by action."
+}
+```
+
+
+**Sample Responses**
+
+**201 Created**
+
+**303 See Other**
+
+**403 Forbidden**
+
+</br>
+
+
+
+
+## Feedback
+More than welcome to send any feedback / feature request by filling an issue or email
