@@ -79,6 +79,7 @@ To access the enpoints to write or delete resources, you need an API Key in your
 
 Please reference [Swagger Documentation](http://egobooster.net/swagger-ui/index.html#/) for all REST Endpoints
 
+
 #### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
