@@ -66,9 +66,12 @@ A few of the things you can do with EgoBooster 🔥
 
 </br>
 
-### API KEY
+### Authentication
 
-To POST or PUT resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
+End points to write resources must be authenticated. 
+
+#### Shared Secret Key
+To access the enpoints to write or delete resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
 
 </br>
 
