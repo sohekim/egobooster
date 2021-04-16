@@ -1,4 +1,5 @@
 </br>
+</br>
 <p align="center">
   <a href="http://egobooster.net/">
     <img alt="GitPoint" title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/logoWithText.png" width="180">
@@ -12,11 +13,9 @@
 <p align="center">
   <b>API Server and Web Server Built with Spring Boot Deployed To AWS.</b>
 </p>
+
 </br>
-
-
-
-
+</br>
 
 ## Table of Contents
 
@@ -24,10 +23,9 @@
 - [Implementation](#implementation)
 - [API Documentation](#api)
 - [Feedback](#feedback)
+
 </br>
-
-
-
+</br>
 
 ## Features 
 A few of the things you can do with EgoBooster 🔥 
@@ -37,8 +35,10 @@ A few of the things you can do with EgoBooster 🔥
 * Public Ego Boosters RESTful API
 </br>
 
+<img title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/docs.png" width=100%>
 
-
+</br>
+</br>
 
 ## Implementation
 
@@ -50,19 +50,23 @@ A few of the things you can do with EgoBooster 🔥
 
 </br>
 
+<img alt="GitPoint" title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/architect.png" width=65%>
 
-
+</br>
+</br>
 
 ## API Documentation
 
+Please reference [Swagger Documentation](http://egobooster.net/swagger-ui/index.html#/) for all REST Endpoints
+
 ### Definition of REST
 
-| HTTP Method  | Usage           |
-| ------------ |-----------------|
+| HTTP Method  | Usage                         |
+| ------------ |-------------------------------|
 | GET          | Read existing resource        |
-| PUT          | Overwrite existing resource    |
-| POST         | Create new resource      |
-| DELETE       | Delete given resource       |
+| PUT          | Overwrite existing resource   |
+| POST         | Create new resource           |
+| DELETE       | Delete given resource         |
 
 </br>
 
@@ -75,12 +79,7 @@ To access the enpoints to write or delete resources, you need an API Key in your
 
 </br>
 
-### Booster related REST Endpoints
-
-Please reference [Swagger Documentation](http://egobooster.net/swagger-ui/index.html#/) for all REST Endpoints
-
-
-#### 1. Retrieve Boosters
+### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
 
@@ -117,10 +116,10 @@ Endpoint to get all or filtered Boosters
 ```
 
 - Return Value : **404 Not Found**
+
 </br>
 
-
-#### 2. Save a Booster
+### 2. Save a Booster
 Endpoint to save a Booster
 > **POST** /api/v1/boosters
 
@@ -158,10 +157,7 @@ Endpoint to save a Booster
 
 </br>
 
-
-
-
-#### 3. Personalize a Booster
+### 3. Personalize a Booster
 Endpoint to personalize a Booster
 > **POST** /api/v1/boosters/{id}/personalize
 
@@ -211,11 +207,7 @@ Endpoint to personalize a Booster
 
 - Return Value : **404 Not Found**
 
-
 </br>
-
-
-
 
 ## Feedback
 More than welcome to send any feedback / feature request by filling an issue or email
