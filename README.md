@@ -66,20 +66,25 @@ A few of the things you can do with EgoBooster 🔥
 
 </br>
 
-### API KEY
+### Authentication
 
-To POST or PUT resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
+End points to write resources must be authenticated. 
+
+#### Shared Secret Key
+To access the enpoints to write or delete resources, you need an API Key in your header request for Authorization. If you don't have the correct key, you will get **403 Forbidden** Response code.
 
 </br>
 
 ### Booster related REST Endpoints
 
-### 1. Retrieve Boosters
+Please reference [Swagger Documentation](http://egobooster.net/swagger-ui/index.html#/) for all REST Endpoints
+
+
+#### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
 
 **Possible Parameters**
-
 
 | Parameter  | Parameter Type |Description      |Required     |
 | -----------|----------------|-----------------|-------------| 
@@ -90,20 +95,32 @@ Endpoint to get all or filtered Boosters
 
 **Sample Responses**
 
-**200 OK**
+- Return Value : **200 OK**
 ```
 [
   {
-    "id": 0,
-    "text": "string",
-    "updateDate": "2021-04-15T10:34:28.155Z"
-  }
+    "id": 1,
+    "text": "When you recover or discover something that nourishes your soul and brings joy, care enough about yourself to make room for it in your life.",
+    "updateDate": "2021-04-06T19:54:54"
+  },
+  {
+    "id": 2,
+    "text": "Until you value yourself, you won’t value your time. Until you value your time, you will not do anything with it.",
+    "updateDate": "2021-04-06T19:55:24"
+  },
+  {
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34"
+  },
 ]
 ```
 
-**404 Not Found**
+- Return Value : **404 Not Found**
+</br>
 
-### 2. Save a Booster
+
+#### 2. Save a Booster
 Endpoint to save a Booster
 > **POST** /api/v1/boosters
 
@@ -125,11 +142,75 @@ Endpoint to save a Booster
 
 **Sample Responses**
 
-**201 Created**
+- Return Value : **201 Created**
 
-**303 See Other**
+  - Headers
+  
+    ```
+    {
+        location : /api/v1/boosters/{id}
+    }
+    ```
 
-**403 Forbidden**
+- Return Value : **409 Conflict**
+
+- Return Value : **403 Forbidden**
+
+</br>
+
+
+
+
+#### 3. Personalize a Booster
+Endpoint to personalize a Booster
+> **POST** /api/v1/boosters/{id}/personalize
+
+**Possible Parameters**
+
+
+| Parameter  | Parameter Type |Description               |Required     |
+| -----------|----------------|--------------------------|-------------| 
+| id         | @Path          |booster id                |Yes          |
+| giftee     | @QueryParam    |person to receive booster |No           |
+| gifter     | @QueryParam    |person to give booster    |No           |
+
+
+**Sample Responses**
+
+- Return Value : **200 OK**
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "",
+    "giftee": ""
+}
+```
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "Sohee",
+    "giftee": ""
+}
+```
+
+```
+{
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34",
+    "gifter": "Sohee",
+    "giftee": "Minwoo"
+}
+```
+
+- Return Value : **404 Not Found**
+
 
 </br>
 
