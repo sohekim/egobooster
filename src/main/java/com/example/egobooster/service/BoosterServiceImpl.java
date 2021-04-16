@@ -45,8 +45,7 @@ public class BoosterServiceImpl implements BoosterService {
   @Override
   public Booster save(BoosterDto boosterDto) {
     boosterDto.setUpdateDate(LocalDateTime.now());
-    Booster booster = boosterRepository.save(BoosterConverter.ofDto(boosterDto));
-    return booster;
+    return boosterRepository.save(BoosterConverter.ofDto(boosterDto));
   }
 
   @Override

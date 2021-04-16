@@ -12,8 +12,7 @@ public class BatchServiceImpl implements BatchService {
 
   final BatchRedisRepository batchRedisRepository;
 
-  @Override
-  public RedisBatch executeBatch() {
+  private RedisBatch addBatchIfNotExist() {
     Optional<RedisBatch> optionalBatchNum = batchRedisRepository.findById(1L);
     if (optionalBatchNum.isEmpty()) {
       batchRedisRepository.save(new RedisBatch(1L, 1));
@@ -22,7 +21,13 @@ public class BatchServiceImpl implements BatchService {
     if (optionalBatchNum.get().getCount() == null) {
       optionalBatchNum.get().setCount(0);
     }
-    RedisBatch redisBatch = optionalBatchNum.get();
+
+    return optionalBatchNum.get();
+  }
+
+  @Override
+  public RedisBatch executeBatch() {
+    RedisBatch redisBatch = addBatchIfNotExist();
     redisBatch.setCount(redisBatch.getCount() + 1);
     batchRedisRepository.save(redisBatch);
     return redisBatch;
@@ -30,15 +35,7 @@ public class BatchServiceImpl implements BatchService {
 
   @Override
   public RedisBatch setBatch(Integer num) {
-    Optional<RedisBatch> optionalBatchNum = batchRedisRepository.findById(1L);
-    if (optionalBatchNum.isEmpty()) {
-      batchRedisRepository.save(new RedisBatch(1L, 1));
-      optionalBatchNum = batchRedisRepository.findById(1L);
-    }
-    if (optionalBatchNum.get().getCount() == null) {
-      optionalBatchNum.get().setCount(0);
-    }
-    RedisBatch redisBatch = optionalBatchNum.get();
+    RedisBatch redisBatch = addBatchIfNotExist();
     redisBatch.setCount(num);
     batchRedisRepository.save(redisBatch);
     return redisBatch;
