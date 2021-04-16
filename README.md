@@ -77,12 +77,11 @@ To access the enpoints to write or delete resources, you need an API Key in your
 
 ### Booster related REST Endpoints
 
-### 1. Retrieve Boosters
+#### 1. Retrieve Boosters
 Endpoint to get all or filtered Boosters
 > **GET** /api/v1/boosters
 
 **Possible Parameters**
-
 
 | Parameter  | Parameter Type |Description      |Required     |
 | -----------|----------------|-----------------|-------------| 
@@ -93,7 +92,7 @@ Endpoint to get all or filtered Boosters
 
 **Sample Responses**
 
-**Return Value : 200 OK**
+- Return Value : **200 OK**
 ```
 [
   {
@@ -114,9 +113,9 @@ Endpoint to get all or filtered Boosters
 ]
 ```
 
-**Return Value : 404 Not Found**
+- Return Value : **404 Not Found**
 
-### 2. Save a Booster
+#### 2. Save a Booster
 Endpoint to save a Booster
 > **POST** /api/v1/boosters
 
@@ -138,18 +137,19 @@ Endpoint to save a Booster
 
 **Sample Responses**
 
-**Return Value : 201 Created**
+- Return Value : **201 Created**
 
-**Headers**
-```
-{
-    location : /api/v1/boosters/{id}
-}
-```
+  - Headers
+  
+    ```
+    {
+        location : /api/v1/boosters/{id}
+    }
+    ```
 
-**Return Value : 409 Conflict**
+- Return Value : **409 Conflict**
 
-**Return Value : 403 Forbidden**
+- Return Value : **403 Forbidden**
 
 </br>
 
