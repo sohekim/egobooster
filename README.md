@@ -93,18 +93,28 @@ Endpoint to get all or filtered Boosters
 
 **Sample Responses**
 
-**200 OK**
+**Return Value : 200 OK**
 ```
 [
   {
-    "id": 0,
-    "text": "string",
-    "updateDate": "2021-04-15T10:34:28.155Z"
-  }
+    "id": 1,
+    "text": "When you recover or discover something that nourishes your soul and brings joy, care enough about yourself to make room for it in your life.",
+    "updateDate": "2021-04-06T19:54:54"
+  },
+  {
+    "id": 2,
+    "text": "Until you value yourself, you won’t value your time. Until you value your time, you will not do anything with it.",
+    "updateDate": "2021-04-06T19:55:24"
+  },
+  {
+    "id": 3,
+    "text": "An individual cannot be comfortable without their own approval.",
+    "updateDate": "2021-04-06T19:55:34"
+  },
 ]
 ```
 
-**404 Not Found**
+**Return Value : 404 Not Found**
 
 ### 2. Save a Booster
 Endpoint to save a Booster
@@ -128,11 +138,18 @@ Endpoint to save a Booster
 
 **Sample Responses**
 
-**201 Created**
+**Return Value : 201 Created**
 
-**303 See Other**
+**Headers**
+```
+{
+    location : /api/v1/boosters/{id}
+}
+```
 
-**403 Forbidden**
+**Return Value : 409 Conflict**
+
+**Return Value : 403 Forbidden**
 
 </br>
 
