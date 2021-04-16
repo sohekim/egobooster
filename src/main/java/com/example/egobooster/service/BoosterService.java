@@ -15,7 +15,9 @@ public interface BoosterService {
 
   Page<Booster> findBoostersByKeyword(String keyword, Integer page, Integer size);
 
-  boolean save(BoosterDto dto);
+  Booster save(BoosterDto dto);
+
+  boolean isDuplicate(BoosterDto dto);
 
   String personalize(String boosterText, String giftee);
 

@@ -7,12 +7,15 @@ import com.example.egobooster.domain.dto.CustomBoosterDto;
 import com.example.egobooster.domain.entity.Booster;
 import com.example.egobooster.service.BoosterService;
 import com.sun.istack.Nullable;
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,17 +38,22 @@ public class BoosterController {
   private String myKey;
 
   @PostMapping
-  public ResponseEntity<String> save(@RequestHeader("key") String key,
+  public ResponseEntity<String> save(
+      HttpServletRequest request,
+      @RequestHeader("key") String key,
       @RequestBody BoosterDto boosterDto) {
 
     if (!myKey.equals(key)) {
       return new ResponseEntity<>("Ooops permission denied", HttpStatus.FORBIDDEN);
     }
-
-    if (!boosterService.save(boosterDto)) {
-      return new ResponseEntity<>("booster already exists", HttpStatus.SEE_OTHER);
+    if (boosterService.isDuplicate(boosterDto)) {
+      return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
-    return new ResponseEntity<>("booster saved", HttpStatus.CREATED);
+
+    Booster booster = boosterService.save(boosterDto);
+    HttpHeaders responseHeaders = new HttpHeaders();
+    responseHeaders.setLocation(URI.create(request.getRequestURI() + "/" + booster.getId()));
+    return new ResponseEntity<>(responseHeaders, HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")

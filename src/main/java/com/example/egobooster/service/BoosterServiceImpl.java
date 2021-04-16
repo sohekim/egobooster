@@ -38,13 +38,15 @@ public class BoosterServiceImpl implements BoosterService {
   }
 
   @Override
-  public boolean save(BoosterDto boosterDto) {
-    if (boosterRepository.existsByText(boosterDto.getText())) {
-      return false;
-    }
+  public boolean isDuplicate(BoosterDto boosterDto) {
+    return boosterRepository.existsByText(boosterDto.getText());
+  }
+
+  @Override
+  public Booster save(BoosterDto boosterDto) {
     boosterDto.setUpdateDate(LocalDateTime.now());
-    boosterRepository.save(BoosterConverter.ofDto(boosterDto));
-    return true;
+    Booster booster = boosterRepository.save(BoosterConverter.ofDto(boosterDto));
+    return booster;
   }
 
   @Override
