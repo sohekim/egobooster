@@ -1,5 +1,7 @@
 </br>
 </br>
+
+
 <p align="center">
   <a href="http://egobooster.net/">
     <img alt="GitPoint" title="GitPoint" src="https://github.com/sohekim/egobooster/blob/master/src/main/resources/static/images/logoWithText.png" width="180">
@@ -13,9 +15,15 @@
 <p align="center">
   <b>API Server and Web Server Built with Spring Boot Deployed To AWS</b>
 </p>
+</br>
 
+```
+
+⛔️ If the website is not responding, it's probably because the server exceeded the AWS free tier limit
+
+```
 </br>
-</br>
+
 
 ## Table of Contents
 
